@@ -1,4 +1,3 @@
-* Pane Selection color
 * Add config for wl-copy vs pbcopy vs xclip
 * Tmuxinator?
 * Add flake-built tmux to module(?)
