@@ -25,7 +25,6 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgsFor.${system};
-          config = {programs.tmux.enable = true;};
         in
         {
           tmux = pkgs.tmux.overrideAttrs(old: {
