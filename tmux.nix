@@ -4,7 +4,9 @@
 
 # Whatever additional plugins are required can be added here
 # and added to plugins
-let plugins = with pkgs; [];
+let plugins = with pkgs.tmuxPlugins; [
+  nord
+];
 in {
   environment.systemPackages = plugins ++ (with pkgs; [
     tmux
