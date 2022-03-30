@@ -27,15 +27,17 @@
           pkgs = nixpkgsFor.${system};
         in
         {
-          tmux = pkgs.tmux.overrideAttrs(old: {
-            postInstall = "";
-          });
+          tmux-conf = pkgs.writeTextFile{
+            name = "tmux.conf";
+            text = builtins.readFile ./tmux.conf;
+            destination = "/etc/tmux.conf";
+          };
         });
 
       # The default package for 'nix build'. This makes sense if the
       # flake provides only one package or there is a clear "main"
       # package.
-      defaultPackage = forAllSystems (system: self.packages.${system}.tmux);
+      defaultPackage = forAllSystems (system: self.packages.${system}.tmux-conf);
       nixosModule = import ./tmux.nix;
     };
 }
