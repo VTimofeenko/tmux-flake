@@ -1,5 +1,41 @@
 {
   "nodes": {
+    "base16": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1643556194,
+        "narHash": "sha256-mU/pD30cIRcodLROhbIpRuEoEsO9aV5lDrYav0ZSIUA=",
+        "owner": "SenchoPens",
+        "repo": "base16.nix",
+        "rev": "abc25e69d0e18ce54dbe6d95a531c4d63ed59932",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SenchoPens",
+        "repo": "base16.nix",
+        "type": "github"
+      }
+    },
+    "color_scheme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1538613261,
+        "narHash": "sha256-l0WzTUSvLgsL+ExcgdMzXoJnfVQvKr8Jk5uKI6Li8CU=",
+        "owner": "ajlende",
+        "repo": "base16-atlas-scheme",
+        "rev": "55fe308a8d93a31c1bd55e80ff573b11511b6cf3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ajlende",
+        "repo": "base16-atlas-scheme",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1646588256,
@@ -17,6 +53,8 @@
     },
     "root": {
       "inputs": {
+        "base16": "base16",
+        "color_scheme": "color_scheme",
         "nixpkgs": "nixpkgs"
       }
     }
