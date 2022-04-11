@@ -97,5 +97,15 @@
       defaultPackage = forAllSystems (system: self.packages.${system}.tmux-conf);
 
       nixosModule = import ./tmux.nix mkTmuxConf;
+
+      devShell = forAllSystems (system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        with pkgs; mkShell {
+          buildInputs = [ pre-commit nixpkgs-fmt ];
+        });
+
     };
+
 }
