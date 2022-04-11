@@ -9,7 +9,8 @@ mkTmuxConf: { pkgs, lib, config, ... }:
 # and added to plugins
 let plugins = with pkgs.tmuxPlugins; [
 ];
-in {
+in
+{
   environment.systemPackages = plugins ++ (with pkgs; [
     tmux
   ]);
