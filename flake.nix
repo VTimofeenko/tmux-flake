@@ -62,7 +62,7 @@
           /* Panes */
           "pane-border-style" = "${mkfg base04}";
           "display-panes-colour" = "#${base04}";
-          "pane-active-border-style" = "${mkfg base02}";
+          "pane-active-border-style" = "${mkfg base0E}";
           "display-panes-active-colour" = "#${base02}";
 
           /* The name of the session is here */
