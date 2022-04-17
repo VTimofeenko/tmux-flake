@@ -33,20 +33,20 @@
       color_scheme_name = "atlas";
       /* mkSchemeAttrs needs pkgs and a lib. For this context - let's just give one at random. */
       /* We're just creating a file, probably it's OK */
-      build_pkgs = import nixpkgs { system = "x86_64-linux"; };
-      rendered_color_scheme = with inputs; (base16.outputs.lib { pkgs = build_pkgs; lib = build_pkgs.lib; }).mkSchemeAttrs "${color_scheme}/${color_scheme_name}.yaml";
+      /* build_pkgs = import nixpkgs { system = "x86_64-linux"; }; */
 
       /* Function that returns the tmux config. Defined here to keep the code DRY. */
-      mkTmuxConf = with builtins; ''
         # Main config
         ${readFile ./tmux.conf}
       '' + (with rendered_color_scheme; (
+      mkTmuxConf = pkgs:
         let
           default_background = "#" + base00;
           default_foreground = "#" + base07;
           /* helper functions */
           mkbg = _: "bg=#" + _;
           mkfg = _: "fg=#" + _;
+          rendered_color_scheme = with inputs; (base16.outputs.lib { inherit pkgs; lib = pkgs.lib; }).mkSchemeAttrs "${color_scheme}/${color_scheme_name}.yaml";
         in
         builtins.concatStringsSep "\n" (nixpkgs.lib.attrsets.attrValues (nixpkgs.lib.attrsets.mapAttrs (k: v: "set -g ${k} \"${toString v}\"") {
           "default-terminal" = "screen-256color";
@@ -90,7 +90,7 @@
         {
           tmux-conf = pkgs.writeTextFile {
             name = "tmux.conf";
-            text = mkTmuxConf;
+            text = mkTmuxConf pkgs;
             destination = "/etc/tmux.conf";
           };
         });

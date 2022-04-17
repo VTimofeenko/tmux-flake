@@ -21,7 +21,7 @@ in
     baseIndex = 1;
     escapeTime = 1;
     extraConfig = ''
-      ${mkTmuxConf}
+      ${mkTmuxConf pkgs}
 
       # Plugins
       ${lib.concatStrings (map (x: "run-shell ${x.rtp}\n") plugins)}
