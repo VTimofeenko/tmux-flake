@@ -52,7 +52,6 @@
             mkfg = _: "fg=#" + _;
           in
           builtins.concatStringsSep "\n" (nixpkgs.lib.attrsets.attrValues (nixpkgs.lib.attrsets.mapAttrs (k: v: "set -g ${k} \"${toString v}\"") {
-            "default-terminal" = "screen-256color";
             /* Status (background of the pane) */
             "status-interval" = 1;
             "status" = "on";
