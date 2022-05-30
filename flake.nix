@@ -59,7 +59,7 @@
             "message-style" = mkfg base01 + "," + mkbg base0A;
             "message-command-style" = mkfg base01 + "," + mkbg base0A;
             /* Copy mode */
-            "mode-style" = "fg=#869696,bg=#517F8D";
+            "mode-style" = "${mkfg base00},${mkbg base0E}";
 
             /* Panes */
             "pane-border-style" = "${mkfg base04}";
