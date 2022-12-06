@@ -1,7 +1,7 @@
 {
   description = "My tmux config flake";
 
-  inputs.nixpkgs.url = "nixpkgs/nixos-21.11";
+  inputs.nixpkgs.url = "nixpkgs/nixos-22.11";
 
   # Colors
   inputs.base16 = {
