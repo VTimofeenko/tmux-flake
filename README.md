@@ -1,3 +1,7 @@
+# Deprecation note
+
+This flake has been merged into my [main config](https://github.com/VTimofeenko/monorepo-machine-config).
+
 # My tmux configuration flake
 
 This is a [flake](https://nixos.wiki/wiki/Flakes) that configures tmux.
